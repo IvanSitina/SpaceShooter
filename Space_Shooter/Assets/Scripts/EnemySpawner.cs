@@ -4,11 +4,10 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour {
 
     public GameObject EnemyGO;
-    float maxSpawnRateInSeconds = 3f;
+    float maxSpawnRateInSeconds = 5f;
 	// Use this for initialization
 	void Start () {
-        Invoke("SpawnEnemy", maxSpawnRateInSeconds);
-        InvokeRepeating("IncreaseSpawnRate", 0f, 30f);
+        
 	}   
 	
 	// Update is called once per frame
@@ -47,5 +46,18 @@ public class EnemySpawner : MonoBehaviour {
             maxSpawnRateInSeconds--;
         if (maxSpawnRateInSeconds == 1f)
             CancelInvoke("IncreaseSpawnRate");
+    }
+
+    public void ScheduleEnemySpawner()
+    {
+        maxSpawnRateInSeconds = 5f;
+        Invoke("SpawnEnemy", maxSpawnRateInSeconds);
+        InvokeRepeating("IncreaseSpawnRate", 0f, 30f);
+    }
+
+    public void UnscheduleEnemySpawner()
+    {
+        CancelInvoke("SpawnEnemy");
+        CancelInvoke("IncreaseSpawnRate");
     }
 }

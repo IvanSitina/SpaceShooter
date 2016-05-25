@@ -1,12 +1,31 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerContorl : MonoBehaviour {
+    public GameObject GameManagerGO;
+
     public GameObject PlayerBulletGO;
     public GameObject BulletPosition1;
     public GameObject BulletPosition2;
+    public GameObject ExplosionGO;
+
+    public Text LivesUIText;
+
+    const int MaxLives = 3;
+    int lives;
     
     public float speed;
+
+    public void Init()
+    {
+        lives = MaxLives;
+        LivesUIText.text = lives.ToString();
+
+        transform.position = new Vector2(0, 0);
+
+        gameObject.SetActive(true);
+    }
 	// Use this for initialization
 	void Start () {
 	
@@ -16,6 +35,7 @@ public class PlayerContorl : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown("space"))
         {
+            audio.Play();
             GameObject bullet01 = (GameObject)Instantiate(PlayerBulletGO);
             bullet01.transform.position = BulletPosition1.transform.position;
 
@@ -50,5 +70,28 @@ public class PlayerContorl : MonoBehaviour {
 
         transform.position = pos;
 
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if ((col.tag == "EnemyShipTag") || (col.tag == "EnemyBulletTag"))
+        {
+            PlayExplosion();
+            lives--;
+            LivesUIText.text = lives.ToString();
+            if (lives == 0)
+            {
+                GameManagerGO.GetComponent<GameManager>().SetGameManagerState(GameManager.GameManagerState.GameOver);
+                //Destroy(gameObject);
+                gameObject.SetActive(false);
+            }
+            
+        }
+    }
+
+    void PlayExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        explosion.transform.position = transform.position;
     }
 }

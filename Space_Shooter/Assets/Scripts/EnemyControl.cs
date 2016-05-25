@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class EnemyControl : MonoBehaviour {
+    GameObject scoreUITextGO;
+    public GameObject ExplosionGO;
     float speed;
 	// Use this for initialization
 	void Start () {
         speed = 2f;
+        scoreUITextGO = GameObject.FindGameObjectWithTag("ScoreTextTag");
 	}
 	
 	// Update is called once per frame
@@ -21,4 +24,20 @@ public class EnemyControl : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if ((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag"))
+        {
+            PlayExplosion();
+            scoreUITextGO.GetComponent<GameScore>().Score += 150;
+            Destroy(gameObject);
+        }
+    }
+
+    void PlayExplosion()
+    {
+        GameObject explosion = (GameObject)Instantiate(ExplosionGO);
+        explosion.transform.position = transform.position;
+    }
 }
