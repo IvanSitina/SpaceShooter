@@ -9,7 +9,7 @@ public class EnemyBullet : MonoBehaviour {
 
     void Awake()
     {
-        speed = 5f;
+        speed = 10f;
         isReady = false;
     }
 

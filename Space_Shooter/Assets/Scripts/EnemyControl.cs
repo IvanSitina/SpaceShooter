@@ -30,7 +30,15 @@ public class EnemyControl : MonoBehaviour {
         if ((col.tag == "PlayerShipTag") || (col.tag == "PlayerBulletTag"))
         {
             PlayExplosion();
-            scoreUITextGO.GetComponent<GameScore>().Score += 150;
+            scoreUITextGO.GetComponent<GameScore>().Score += 125;
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
+            {
+                scoreUITextGO.GetComponent<GameScore>().Score += 125;
+            }
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 50000)
+            {
+                scoreUITextGO.GetComponent<GameScore>().Score += 250;
+            }
             Destroy(gameObject);
         }
     }

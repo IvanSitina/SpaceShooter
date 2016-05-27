@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour {
 
         if (maxSpawnRateInSeconds > 1f)
         {
-            spawnInNSeconds = Random.Range(1f, maxSpawnRateInSeconds);
+            spawnInNSeconds = Random.Range(0.001f, maxSpawnRateInSeconds);
         }
         else
         { spawnInNSeconds = 1f; }
