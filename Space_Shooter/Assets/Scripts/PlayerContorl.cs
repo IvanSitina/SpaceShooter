@@ -12,7 +12,7 @@ public class PlayerContorl : MonoBehaviour {
 
     public Text LivesUIText;
 
-    const int MaxLives = 3;
+    const int MaxLives = 5;
     int lives;
     
     public float speed;
