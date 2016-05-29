@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemySpawner : MonoBehaviour {
-
+    
     public GameObject EnemyGO;
     float maxSpawnRateInSeconds = 5f;
 	// Use this for initialization
@@ -28,16 +28,18 @@ public class EnemySpawner : MonoBehaviour {
 
     void ScheduleNextEnemySpawn()
     {
-        float spawnInNSeconds;
+            float spawnInNSeconds;
 
-        if (maxSpawnRateInSeconds > 1f)
-        {
-            spawnInNSeconds = Random.Range(1f, maxSpawnRateInSeconds);
-        }
-        else
-        { spawnInNSeconds = 1f; }
+            if (maxSpawnRateInSeconds > 1f)
+            {
+                spawnInNSeconds = Random.Range(1f, maxSpawnRateInSeconds);
+            }
+            else
+            { spawnInNSeconds = 1f; }
 
-        Invoke("SpawnEnemy", spawnInNSeconds);
+            Invoke("SpawnEnemy", spawnInNSeconds);
+      
+        
     }
 
     void IncreaseSpawnRate()
