@@ -3,10 +3,42 @@ using System.Collections;
 
 public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBulletGO;
+    GameObject scoreUITextGO;
+    public GameObject ExplosionGO;
+    float speed;
 	// Use this for initialization
 	void Start () {
+<<<<<<< HEAD
         Invoke("FireEnemyBullet", 1.5f);
         Invoke("FireEnemyBullet", 0.1f);
+=======
+        speed = 2f;
+        scoreUITextGO = GameObject.FindGameObjectWithTag("ScoreTextTag");
+        Invoke("FireEnemyBullet", 1f);
+
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 500)
+        {
+            Invoke("FireEnemyBullet", 0.5f);
+        }
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 1000)
+        {
+            Invoke("FireEnemyBullet", 0.5f);
+            Invoke("FireEnemyBullet", 1.5f);
+        }
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 1500)
+        {
+            Invoke("FireEnemyBullet", 0.1f);
+            Invoke("FireEnemyBullet", 0.5f);
+            Invoke("FireEnemyBullet", 1.5f);
+        }
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 2000)
+        {
+            Invoke("FireEnemyBullet", 0.1f);
+            Invoke("FireEnemyBullet", 0.5f);
+            Invoke("FireEnemyBullet", 1.5f);
+            Invoke("FireEnemyBullet", 2f);
+        }
+>>>>>>> development
 	}
 	
 	// Update is called once per frame
