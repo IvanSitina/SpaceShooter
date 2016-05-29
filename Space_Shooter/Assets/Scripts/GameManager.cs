@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
             case GameManagerState.GameOver:
                 enemySpawner.GetComponent<EnemySpawner>().UnscheduleEnemySpawner();
                 gameOverGO.SetActive(true);
-                Invoke("ChangeToOpeningState", 5f);
+                Invoke("ChangeToOpeningState", 3f);
                 break;
         }
     }

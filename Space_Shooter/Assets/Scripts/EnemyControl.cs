@@ -32,6 +32,7 @@ public class EnemyControl : MonoBehaviour {
             PlayExplosion();
             scoreUITextGO.GetComponent<GameScore>().Score += 125;
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
             {
                 scoreUITextGO.GetComponent<GameScore>().Score += 125;
@@ -42,20 +43,30 @@ public class EnemyControl : MonoBehaviour {
             }
 =======
             if (scoreUITextGO.GetComponent<GameScore>().Score > 5000)
+=======
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 1000)
+>>>>>>> development
             {
                 scoreUITextGO.GetComponent<GameScore>().Score += 125;
             }
-            if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 5000)
             {
                 scoreUITextGO.GetComponent<GameScore>().Score += 250;
             }
-            if (scoreUITextGO.GetComponent<GameScore>().Score > 50000)
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
             {
                 scoreUITextGO.GetComponent<GameScore>().Score += 500;
             }
-            if (scoreUITextGO.GetComponent<GameScore>().Score > 100000)
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 50000)
             {
                 scoreUITextGO.GetComponent<GameScore>().Score += 1000;
+            }
+<<<<<<< HEAD
+>>>>>>> development
+=======
+            if (scoreUITextGO.GetComponent<GameScore>().Score > 100000)
+            {
+                scoreUITextGO.GetComponent<GameScore>().Score += 2000;
             }
 >>>>>>> development
             Destroy(gameObject);
