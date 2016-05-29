@@ -30,24 +30,16 @@ public class EnemySpawner : MonoBehaviour {
     {
             float spawnInNSeconds;
 
-<<<<<<< HEAD
-        if (maxSpawnRateInSeconds > 1f)
-        {
-            spawnInNSeconds = Random.Range(0.001f, maxSpawnRateInSeconds);
-        }
-        else
-        { spawnInNSeconds = 1f; }
-=======
             if (maxSpawnRateInSeconds > 1f)
             {
                 spawnInNSeconds = Random.Range(1f, maxSpawnRateInSeconds);
             }
             else
             { spawnInNSeconds = 1f; }
->>>>>>> development
 
             Invoke("SpawnEnemy", spawnInNSeconds);
-      
+
+            
         
     }
 

@@ -6,11 +6,7 @@ public class PlayerBullet : MonoBehaviour {
     float speed;
 	// Use this for initialization
 	void Start () {
-        speed = 10f;
-<<<<<<< HEAD
-=======
-
->>>>>>> development
+        speed = 15f;
 	}
 	
 	// Update is called once per frame

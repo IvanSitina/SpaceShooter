@@ -5,50 +5,40 @@ public class EnemyGun : MonoBehaviour {
     public GameObject EnemyBulletGO;
     GameObject scoreUITextGO;
     public GameObject ExplosionGO;
-    
 	// Use this for initialization
 	void Start () {
-<<<<<<< HEAD
-<<<<<<< HEAD
-        Invoke("FireEnemyBullet", 1.5f);
-        Invoke("FireEnemyBullet", 0.1f);
-=======
-        speed = 2f;
-=======
-        
->>>>>>> development
         scoreUITextGO = GameObject.FindGameObjectWithTag("ScoreTextTag");
         Invoke("FireEnemyBullet", 1f);
 
-        if (scoreUITextGO.GetComponent<GameScore>().Score > 1000)
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 5000)
         {
             maxSpawnRateInSeconds = 4f;
             Invoke("FireEnemyBullet", 0.5f);
             
         }
-        if (scoreUITextGO.GetComponent<GameScore>().Score > 5000)
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
         {
-            maxSpawnRateInSeconds = 3f;
+            maxSpawnRateInSeconds = 3.5f;
             Invoke("FireEnemyBullet", 0.5f);
             Invoke("FireEnemyBullet", 1.5f);
             
         }
-        if (scoreUITextGO.GetComponent<GameScore>().Score > 10000)
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 20000)
         {
-            maxSpawnRateInSeconds = 2f;
+            maxSpawnRateInSeconds = 3f;
             Invoke("FireEnemyBullet", 0.1f);
             Invoke("FireEnemyBullet", 0.5f);
             Invoke("FireEnemyBullet", 1.5f);
         }
-        if (scoreUITextGO.GetComponent<GameScore>().Score > 50000)
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 25000)
         {
-            maxSpawnRateInSeconds = 1f;
+            maxSpawnRateInSeconds = 2.5f;
             Invoke("FireEnemyBullet", 0.1f);
             Invoke("FireEnemyBullet", 0.5f);
             Invoke("FireEnemyBullet", 1.5f);
             Invoke("FireEnemyBullet", 2f);
         }
-        if (scoreUITextGO.GetComponent<GameScore>().Score > 100000)
+        if (scoreUITextGO.GetComponent<GameScore>().Score > 50000)
         {
             maxSpawnRateInSeconds = 0.5f;
             Invoke("FireEnemyBullet", 0.1f);
@@ -60,7 +50,6 @@ public class EnemyGun : MonoBehaviour {
             Invoke("FireEnemyBullet", 1.8f);
             Invoke("FireEnemyBullet", 2f);
         }
->>>>>>> development
 	}
 	
 	// Update is called once per frame
@@ -84,4 +73,6 @@ public class EnemyGun : MonoBehaviour {
 
 
     public double maxSpawnRateInSeconds { get; set; }
+
+    public float spawnInNSeconds { get; set; }
 }
